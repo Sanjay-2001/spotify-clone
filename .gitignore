@@ -54,3 +54,5 @@ server/*.sw?
 
 server/.env.local
 server/.env
+
+server/tmp/

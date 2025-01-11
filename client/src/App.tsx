@@ -1,7 +1,14 @@
 import { Route, Routes } from "react-router-dom";
-import { AlbumPage, AuthCallbackPage, ChatPage, HomePage } from "./pages";
+import {
+  AdminPage,
+  AlbumPage,
+  AuthCallbackPage,
+  ChatPage,
+  HomePage,
+} from "./pages";
 import { AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
 import MainLayout from "./layout/MainLayout";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -16,12 +23,14 @@ function App() {
           }
         />
         <Route path="/auth-callback" element={<AuthCallbackPage />} />
+        <Route path="/admin" element={<AdminPage />} />
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/chat" element={<ChatPage />} />
           <Route path="/albums/:albumId" element={<AlbumPage />} />
         </Route>
       </Routes>
+      <Toaster />
     </>
   );
 }
